@@ -1,0 +1,92 @@
+:root {
+  --color-background: #151515;
+  --color-surface: #1c1c1c;
+  --color-text: #f5f5f0;
+  --color-text-muted: #b5b5ae;
+  --color-border: rgba(245, 245, 240, 0.18);
+  --color-accent: #d8ff45;
+  --color-accent-contrast: #171717;
+  --font-sans: Inter, Arial, sans-serif;
+
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  min-height: 100svh;
+}
+
+.project-placeholder {
+  display: grid;
+  min-height: 100svh;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 48px;
+  align-content: center;
+  border-inline: 1px solid var(--color-border);
+}
+
+.project-placeholder h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+.project-placeholder p:not(.eyebrow) {
+  max-width: 480px;
+  margin: 32px 0 0;
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .project-placeholder {
+    padding: 96px 20px;
+  }
+}
