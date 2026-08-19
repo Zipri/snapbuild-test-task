@@ -9,3 +9,8 @@ export { Roadmap } from "./roadmap";
 export { Faq } from "./faq";
 export { Finalcta } from "./finalcta";
 export { Footer } from "./footer";
+export { Usecases } from "./usecases";
+export { Implementation } from "./implementation";
+export { Integrations } from "./integrations";
+export { Pricing } from "./pricing";
+export { Contactform } from "./contactform";

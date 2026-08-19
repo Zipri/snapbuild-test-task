@@ -30,7 +30,7 @@ const roadmapItems = [
 
 export function Roadmap() {
   return (
-    <section className="section section-shell roadmap">
+    <section className="section section-shell roadmap" id="roadmap">
       <h2>Каждый день — новый релиз</h2>
       <p className="section-intro">Приоритизируем бэклог для ваших целей</p>
       <div className="roadmap__line" />

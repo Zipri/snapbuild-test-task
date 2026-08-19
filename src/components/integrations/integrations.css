@@ -1,0 +1,127 @@
+.integrations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  padding-block: 82px;
+}
+
+.integrations__intro h2 {
+  max-width: 520px;
+  margin-bottom: 18px;
+  font-size: clamp(38px, 3.6vw, 52px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.integrations__intro {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.integrations__intro p {
+  max-width: 460px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.integrations__intro a {
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.integrations__grid {
+  order: -1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.integrations__card {
+  position: relative;
+  min-height: 210px;
+  padding: 24px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: white;
+  transition: background 0.2s;
+}
+
+.integrations__card:nth-child(2n) {
+  border-right: 0;
+}
+
+.integrations__card:nth-child(n + 3) {
+  border-bottom: 0;
+}
+
+.integrations__card:hover {
+  background: #f0f0ed;
+}
+
+.integrations__card > span {
+  color: var(--pink);
+  font-size: 14px;
+}
+
+.integrations__card h3 {
+  margin: 35px 0 8px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.integrations__card p {
+  max-width: 180px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.integrations__card i {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-style: normal;
+}
+
+@media (max-width: 767px) {
+  .integrations {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 56px;
+  }
+
+  .integrations__grid {
+    order: initial;
+  }
+
+  .integrations__intro {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .integrations__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .integrations__card,
+  .integrations__card:nth-child(2n) {
+    min-height: 170px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .integrations__card:last-child {
+    border-bottom: 0;
+  }
+}

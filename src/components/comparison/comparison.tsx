@@ -30,7 +30,7 @@ const comparisonRows = [
 
 export function Comparison() {
   return (
-    <section className="section section-shell comparison">
+    <section className="section section-shell comparison" id="comparison">
       <h2>Почему команды выбирают Снэпбилд</h2>
       <p className="section-intro">
         Вы получаете не редактор, а результат: готовые маркетинговые материалы
