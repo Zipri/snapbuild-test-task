@@ -1,0 +1,80 @@
+.hero {
+  overflow: hidden;
+  min-height: 860px;
+  margin-top: 29px;
+  padding: 174px 5% 0;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 84% 85%, #f17bb9 0, transparent 25%),
+    radial-gradient(circle at 42% 74%, #ffddca 0, transparent 31%),
+    radial-gradient(circle at 5% 80%, #e7b9ff 0, transparent 28%),
+    linear-gradient(135deg, #faf9f3 18%, #ffd7c7 57%, #fec8d9 100%);
+}
+
+.hero__content {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: 20px;
+  font-size: clamp(44px, 5vw, 71px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.hero__content > p {
+  max-width: 690px;
+  margin: 0 auto 20px;
+  color: #666;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.hero__interface {
+  overflow: hidden;
+  max-width: 1220px;
+  margin: 36px auto 0;
+  border-radius: 18px 18px 0 0;
+  background: #1d1d21;
+  box-shadow: 0 14px 32px rgba(61, 20, 36, 0.12);
+}
+
+.hero__interface img {
+  width: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 700px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    min-height: 635px;
+    padding: 126px 16px 0;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .hero__content > p {
+    font-size: 12px;
+  }
+
+  .hero__interface {
+    margin-top: 30px;
+  }
+
+  .hero__interface img {
+    min-height: 270px;
+  }
+}

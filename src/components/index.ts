@@ -1,0 +1,11 @@
+export { Header } from "./header";
+export { Hero } from "./hero";
+export { Trusted } from "./trusted";
+export { Features } from "./features";
+export { Product } from "./product";
+export { Comparison } from "./comparison";
+export { Security } from "./security";
+export { Roadmap } from "./roadmap";
+export { Faq } from "./faq";
+export { Finalcta } from "./finalcta";
+export { Footer } from "./footer";
