@@ -42,7 +42,7 @@
   line-height: 1.4;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 767px) {
   .faq__grid {
     grid-template-columns: 1fr;
   }
