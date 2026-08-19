@@ -1,3 +1,4 @@
+import checkIcon from "../../assets/images/galka.svg";
 import "./comparison.css";
 
 const comparisonRows = [
@@ -28,6 +29,22 @@ const comparisonRows = [
   ],
 ];
 
+function CellContent({ value }: { value: string }) {
+  if (value === "✓") {
+    return <img className="comparison__check" src={checkIcon} alt="" />;
+  }
+
+  if (value === "✓ + ИИ") {
+    return (
+      <span className="comparison__check-label">
+        <img className="comparison__check" src={checkIcon} alt="" /> + ИИ
+      </span>
+    );
+  }
+
+  return value;
+}
+
 export function Comparison() {
   return (
     <section className="section section-shell comparison" id="comparison">
@@ -48,7 +65,7 @@ export function Comparison() {
             className={index % 6 === 1 ? "comparison__highlight" : ""}
             key={`${cell}-${index}`}
           >
-            {cell}
+            <CellContent value={cell} />
           </div>
         ))}
       </div>

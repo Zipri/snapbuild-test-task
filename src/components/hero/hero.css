@@ -1,7 +1,7 @@
 .hero {
   overflow: hidden;
   min-height: 860px;
-  margin-top: 29px;
+  margin-top: 36px;
   padding: 174px 5% 0;
   border-radius: 16px;
   background:
@@ -59,6 +59,7 @@
 @media (max-width: 620px) {
   .hero {
     min-height: 635px;
+    margin-top: 20px;
     padding: 126px 16px 0;
   }
 

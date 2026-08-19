@@ -75,7 +75,7 @@ img {
   max-width: 100%;
 }
 .section-shell {
-  width: min(100% - 56px, 1440px);
+  width: min(100% - 24px, 1440px);
   margin-inline: auto;
 }
 
@@ -99,9 +99,19 @@ img {
   color: white;
 }
 .button--light {
+  min-height: 48px;
+  padding-inline: 24px;
+  border-radius: 14px;
   background: white;
-  color: #fb70b5;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  font-size: 16px;
+  font-weight: 600;
+}
+.button--light span {
+  background: linear-gradient(100deg, #ff794e 0%, #ff6faa 48%, #bd88ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 h1,
 h2,
@@ -131,7 +141,7 @@ p {
 }
 @media (max-width: 620px) {
   .section-shell {
-    width: min(100% - 32px, 1440px);
+    width: min(100% - 12px, 1440px);
   }
   .section {
     padding-block: 42px;

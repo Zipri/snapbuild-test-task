@@ -14,7 +14,7 @@ export function Hero() {
           а не дни.
         </p>
         <a className="button button--light" href="#contact">
-          Начать сейчас
+          <span>Начать сейчас</span>
         </a>
       </div>
       <div className="hero__interface">

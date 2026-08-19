@@ -7,7 +7,7 @@ export function Finalcta() {
         Профессиональные материалы в фирменном стиле за минуты, а не дни
       </h2>
       <a className="button button--light" href="mailto:hey@snapbuild.ru">
-        Начать сейчас
+        <span>Начать сейчас</span>
       </a>
     </section>
   );
