@@ -1,4 +1,4 @@
-import { type MouseEvent, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import headerLogo from '../../assets/images/header_logo.svg';
 import './header.css';
 import {
@@ -20,11 +20,6 @@ export function Header() {
         setIsOpen(false);
     };
 
-    const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        window.location.reload();
-    };
-
     const toggleMenu = () => {
         setIsOpen((currentState) => !currentState);
     };
@@ -42,7 +37,6 @@ export function Header() {
                     className="header__brand"
                     href="#top"
                     aria-label="снэпбилд — на главную"
-                    onClick={handleBrandClick}
                 >
                     <img src={headerLogo} alt="снэпбилд" />
                 </a>
@@ -66,7 +60,7 @@ export function Header() {
                     aria-label="Основная навигация"
                     ref={navRef}
                 >
-                    <a href="#features" onClick={closeMenu}>
+                    <a href="#product" onClick={closeMenu}>
                         Продукт
                     </a>
                     <a href="#usecases" onClick={closeMenu}>
@@ -81,7 +75,7 @@ export function Header() {
                     <a href="#pricing" onClick={closeMenu}>
                         Тарифы
                     </a>
-                    <a href="#product" onClick={closeMenu}>
+                    <a href="#features" onClick={closeMenu}>
                         Возможности
                     </a>
                     <a href="#comparison" onClick={closeMenu}>

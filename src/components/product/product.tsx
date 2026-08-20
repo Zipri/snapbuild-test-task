@@ -6,6 +6,7 @@ import { productContent, productTabs } from "./constants";
 export function Product() {
   const [activeTab, setActiveTab] =
     useState<keyof typeof productContent>("Изображения");
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const activeFeatures = productContent[activeTab];
 
   const handleTabClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -13,6 +14,7 @@ export function Product() {
       .tab as keyof typeof productContent;
 
     setActiveTab(nextTab);
+    setActiveFeatureIndex(0);
   };
 
   return (
@@ -39,21 +41,23 @@ export function Product() {
       <div className="product-showcase">
         <div className="product-points">
           {activeFeatures.map((feature, index) => (
-            <div
+            <button
+              type="button"
               className={
-                index === 1
+                index === activeFeatureIndex
                   ? "product-point product-point--active"
                   : "product-point"
               }
               key={feature}
+              onClick={() => setActiveFeatureIndex(index)}
             >
               <strong>{feature}</strong>
               <span>
-                {index === 1
+                {index === activeFeatureIndex
                   ? "Без часов промптинга и поиска на стоках"
                   : "Инструменты для вашей команды"}
               </span>
-            </div>
+            </button>
           ))}
         </div>
         <div className="product-visual">

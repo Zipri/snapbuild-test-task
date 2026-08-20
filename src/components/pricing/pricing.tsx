@@ -67,7 +67,9 @@ export function Pricing() {
             </div>
             <div className="pricing__price">
               <strong>{plan[billing]}</strong>
-              {plan[billing] !== "По запросу" && <span>₽ / месяц</span>}
+              {plan[billing] !== "По запросу" && (
+                <span>{billing === "monthly" ? "₽ / месяц" : "₽ / месяц при оплате за год"}</span>
+              )}
             </div>
             <ul>
               {plan.features.map((feature) => (

@@ -53,6 +53,8 @@ export const useContactForm = () => {
   };
 
   const handleNewRequest = () => {
+    setForm(initialForm);
+    setError("");
     setSubmitted(false);
   };
 
