@@ -1,154 +1,154 @@
 .tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 34px;
 }
 
 .tabs__button {
-  padding: 10px 14px;
-  border: 0;
-  border-radius: 10px;
-  background: transparent;
-  color: #424242;
-  font-size: 15px;
-  font-weight: 500;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #424242;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .tabs__button--active {
-  background: var(--ink);
-  color: white;
+    background: var(--ink);
+    color: white;
 }
 
 .product-showcase {
-  display: grid;
-  grid-template-columns: minmax(210px, 0.52fr) minmax(0, 1.48fr);
-  gap: 32px;
-  align-items: end;
+    display: grid;
+    grid-template-columns: minmax(210px, 0.52fr) minmax(0, 1.48fr);
+    gap: 32px;
+    align-items: end;
 }
 
 .product-points {
-  display: grid;
-  align-self: end;
+    display: grid;
+    align-self: end;
 }
 
 .product-point {
-  width: 100%;
-  min-height: 88px;
-  padding: 19px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  color: #aaa;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
+    width: 100%;
+    min-height: 88px;
+    padding: 19px 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: #aaa;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
 }
 
 .product-point strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 18px;
-  font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .product-point span {
-  display: block;
-  font-size: 14px;
-  line-height: 1.25;
+    display: block;
+    font-size: 14px;
+    line-height: 1.25;
 }
 
 .product-point--active {
-  color: var(--ink);
+    color: var(--ink);
 }
 
 .product-visual {
-  position: relative;
-  min-height: 470px;
-  padding: 24px;
-  border-radius: 14px;
-  background: #1c1c20;
+    position: relative;
+    min-height: 470px;
+    padding: 24px;
+    border-radius: 14px;
+    background: #1c1c20;
 }
 
 .product-visual > img {
-  width: min(58%, 450px);
-  margin: 0 auto;
-  border-radius: 5px;
-  object-fit: cover;
+    width: min(58%, 450px);
+    margin: 0 auto;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .prompt-panel {
-  position: absolute;
-  right: 7%;
-  bottom: 25px;
-  left: 15%;
-  padding: 16px;
-  border: 1px solid #2f2f34;
-  border-radius: 13px;
-  background: rgba(33, 33, 38, 0.92);
-  color: #85858c;
-  font-size: 10px;
+    position: absolute;
+    right: 7%;
+    bottom: 25px;
+    left: 15%;
+    padding: 16px;
+    border: 1px solid #2f2f34;
+    border-radius: 13px;
+    background: rgba(33, 33, 38, 0.92);
+    color: #85858c;
+    font-size: 10px;
 }
 
 .prompt-panel div {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
 }
 
 .prompt-panel small {
-  padding: 7px 9px;
-  border-radius: 6px;
-  background: #29292e;
+    padding: 7px 9px;
+    border-radius: 6px;
+    background: #29292e;
 }
 
 .prompt-panel button {
-  width: 27px;
-  height: 27px;
-  margin-left: auto;
-  border: 0;
-  border-radius: 7px;
-  background: var(--pink);
+    width: 27px;
+    height: 27px;
+    margin-left: auto;
+    border: 0;
+    border-radius: 7px;
+    background: var(--pink);
 }
 
 @media (max-width: 900px) {
-  .product-showcase {
-    grid-template-columns: 1fr;
-  }
+    .product-showcase {
+        grid-template-columns: 1fr;
+    }
 
-  .product-points {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 20px;
-  }
+    .product-points {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 20px;
+    }
 
-  .product-visual {
-    min-height: 380px;
-  }
+    .product-visual {
+        min-height: 380px;
+    }
 }
 
 @media (max-width: 620px) {
-  .product-points {
-    grid-template-columns: 1fr;
-  }
+    .product-points {
+        grid-template-columns: 1fr;
+    }
 
-  .product-point {
-    min-height: 65px;
-    padding-block: 13px;
-  }
+    .product-point {
+        min-height: 65px;
+        padding-block: 13px;
+    }
 
-  .product-visual {
-    min-height: 300px;
-    padding: 18px;
-  }
+    .product-visual {
+        min-height: 300px;
+        padding: 18px;
+    }
 
-  .product-visual > img {
-    width: 70%;
-  }
+    .product-visual > img {
+        width: 70%;
+    }
 
-  .prompt-panel {
-    right: 5%;
-    bottom: 12px;
-    left: 5%;
-  }
+    .prompt-panel {
+        right: 5%;
+        bottom: 12px;
+        left: 5%;
+    }
 }

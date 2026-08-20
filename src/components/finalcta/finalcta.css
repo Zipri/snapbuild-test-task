@@ -1,32 +1,32 @@
 .final-cta {
-  display: flex;
-  min-height: 336px;
-  margin-top: 55px;
-  padding: 68px 11%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  background:
-    radial-gradient(circle at 7% 12%, #fde9fb 0, transparent 29%),
-    radial-gradient(circle at 82% 5%, #f7d8c8 0, transparent 35%),
-    radial-gradient(circle at 49% 100%, #fc99bf 0, transparent 53%),
-    linear-gradient(140deg, #fed2d5, #f7a9bd 50%, #cfd0ff);
-  text-align: center;
+    display: flex;
+    min-height: 336px;
+    margin-top: 55px;
+    padding: 68px 11%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 7% 12%, #fde9fb 0, transparent 29%),
+        radial-gradient(circle at 82% 5%, #f7d8c8 0, transparent 35%),
+        radial-gradient(circle at 49% 100%, #fc99bf 0, transparent 53%),
+        linear-gradient(140deg, #fed2d5, #f7a9bd 50%, #cfd0ff);
+    text-align: center;
 }
 
 .final-cta h2 {
-  max-width: 800px;
-  margin-bottom: 25px;
-  font-size: clamp(32px, 4vw, 55px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+    max-width: 800px;
+    margin-bottom: 25px;
+    font-size: clamp(32px, 4vw, 55px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 @media (max-width: 620px) {
-  .final-cta {
-    min-height: 300px;
-    padding: 50px 18px;
-  }
+    .final-cta {
+        min-height: 300px;
+        padding: 50px 18px;
+    }
 }

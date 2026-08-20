@@ -1,11 +1,11 @@
-import { useRef, useState } from 'react';
-import headerLogo from '../../assets/images/header_logo.svg';
-import './header.css';
+import { useRef, useState } from "react";
+import headerLogo from "../../assets/images/header_logo.svg";
+import "./header.css";
 import {
     useHeaderScrollState,
     useHorizontalNavigationScroll,
     useNavigationOverflow,
-} from './hooks';
+} from "./hooks";
 
 export function Header() {
     const headerRef = useRef<HTMLElement>(null);
@@ -28,7 +28,7 @@ export function Header() {
 
     return (
         <header
-            className={isScrolled ? 'header header--scrolled' : 'header'}
+            className={isScrolled ? "header header--scrolled" : "header"}
             id="top"
             ref={headerRef}
         >
@@ -51,12 +51,12 @@ export function Header() {
                 </button>
                 <nav
                     className={[
-                        'header__nav',
-                        isOpen && 'header__nav--open',
-                        hasOverflow && 'header__nav--overflow',
+                        "header__nav",
+                        isOpen && "header__nav--open",
+                        hasOverflow && "header__nav--overflow",
                     ]
                         .filter(Boolean)
-                        .join(' ')}
+                        .join(" ")}
                     aria-label="Основная навигация"
                     ref={navRef}
                 >

@@ -5,9 +5,9 @@ import ozonLogo from "../../assets/images/ozon.svg";
 import t2Logo from "../../assets/images/t2.svg";
 
 export const companies = [
-  [ozonLogo, "Ozon"],
-  [t2Logo, "T2"],
-  [avitoLogo, "Avito"],
-  [cianLogo, "ЦИАН"],
-  [lentaLogo, "Лента"],
+    [ozonLogo, "Ozon"],
+    [t2Logo, "T2"],
+    [avitoLogo, "Avito"],
+    [cianLogo, "ЦИАН"],
+    [lentaLogo, "Лента"],
 ];
