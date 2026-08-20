@@ -1,11 +1,5 @@
 import "./integrations.css";
-
-const integrations = [
-  ["Figma", "Компоненты и дизайн-токены"],
-  ["GitHub", "Версии и публикация материалов"],
-  ["CMS", "Контент для существующих сайтов"],
-  ["API", "Связь с вашим внутренним контуром"],
-];
+import { integrations } from "./constants";
 
 export function Integrations() {
   return (

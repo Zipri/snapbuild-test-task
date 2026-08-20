@@ -1,67 +1,35 @@
-import { useEffect, useRef, useState } from 'react';
+import { type MouseEvent, useRef, useState } from 'react';
 import headerLogo from '../../assets/images/header_logo.svg';
 import './header.css';
+import {
+    useHeaderScrollState,
+    useHorizontalNavigationScroll,
+    useNavigationOverflow,
+} from './hooks';
 
 export function Header() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [hasOverflow, setHasOverflow] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
     const headerRef = useRef<HTMLElement>(null);
     const navRef = useRef<HTMLElement>(null);
 
-    useEffect(() => {
-        const nav = navRef.current;
+    const [isOpen, setIsOpen] = useState(false);
 
-        if (!nav) {
-            return;
-        }
-
-        const updateOverflow = () => {
-            setHasOverflow(nav.scrollWidth > nav.clientWidth + 1);
-        };
-
-        updateOverflow();
-        const observer = new ResizeObserver(updateOverflow);
-        observer.observe(nav);
-
-        return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        const header = headerRef.current;
-
-        if (!header) {
-            return;
-        }
-
-        const handleWheel = (event: WheelEvent) => {
-            const nav = navRef.current;
-
-            if (!nav || nav.scrollWidth <= nav.clientWidth) {
-                return;
-            }
-
-            nav.scrollLeft += event.deltaY;
-            event.preventDefault();
-        };
-
-        header.addEventListener('wheel', handleWheel, { passive: false });
-
-        return () => header.removeEventListener('wheel', handleWheel);
-    }, []);
-
-    useEffect(() => {
-        const updateHeaderState = () => setIsScrolled(window.scrollY > 16);
-
-        updateHeaderState();
-        window.addEventListener('scroll', updateHeaderState, { passive: true });
-
-        return () => window.removeEventListener('scroll', updateHeaderState);
-    }, []);
+    const hasOverflow = useNavigationOverflow(navRef);
+    const isScrolled = useHeaderScrollState();
 
     const closeMenu = () => {
         setIsOpen(false);
     };
+
+    const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+        window.location.reload();
+    };
+
+    const toggleMenu = () => {
+        setIsOpen((currentState) => !currentState);
+    };
+
+    useHorizontalNavigationScroll(headerRef, navRef);
 
     return (
         <header
@@ -74,16 +42,13 @@ export function Header() {
                     className="header__brand"
                     href="#top"
                     aria-label="снэпбилд — на главную"
-          onClick={(event) => {
-            event.preventDefault();
-            window.location.reload();
-          }}
+                    onClick={handleBrandClick}
                 >
                     <img src={headerLogo} alt="снэпбилд" />
                 </a>
                 <button
                     className="header__menu-button"
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={toggleMenu}
                     aria-expanded={isOpen}
                     aria-label="Открыть меню"
                 >

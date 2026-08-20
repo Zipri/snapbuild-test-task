@@ -1,42 +1,17 @@
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 import "./usecases.css";
-
-const useCases = {
-  Маркетинг: {
-    label: "Маркетинг",
-    title: "Кампания из одной идеи",
-    description:
-      "Соберите лендинг, баннеры, изображения и презентацию из одного брифа — с единым оффером и фирменным стилем.",
-    items: ["Лендинг для запуска", "Баннеры под площадки", "Материалы для рассылки"],
-  },
-  Дизайн: {
-    label: "Дизайн",
-    title: "Больше времени на систему",
-    description:
-      "Команда работает с готовыми правилами бренда, а дизайнеры контролируют систему вместо ручной сборки типовых материалов.",
-    items: ["Контроль компонентов", "Проверка визуального языка", "Быстрые варианты кампании"],
-  },
-  Продажи: {
-    label: "Продажи",
-    title: "Материалы для каждой встречи",
-    description:
-      "Адаптируйте презентации и клиентские предложения под сегмент, задачу и этап сделки — без очереди к дизайнерам.",
-    items: ["Клиентские презентации", "Отраслевые лендинги", "Персональные предложения"],
-  },
-  Продукт: {
-    label: "Продукт",
-    title: "Единый язык продукта",
-    description:
-      "Превращайте описание новой функции в понятные маркетинговые материалы, сохраняя связь между продуктом и брендом.",
-    items: ["Анонс обновления", "Объясняющий лендинг", "Материалы для базы знаний"],
-  },
-};
+import { useCases } from "./constants";
 
 export function Usecases() {
-  const [activeCase, setActiveCase] = useState<keyof typeof useCases>(
-    "Маркетинг",
-  );
+  const [activeCase, setActiveCase] =
+    useState<keyof typeof useCases>("Маркетинг");
   const currentCase = useCases[activeCase];
+
+  const handleCaseClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const nextCase = event.currentTarget.dataset.case as keyof typeof useCases;
+
+    setActiveCase(nextCase);
+  };
 
   return (
     <section className="section section-shell usecases" id="usecases">
@@ -48,7 +23,11 @@ export function Usecases() {
         </p>
       </div>
 
-      <div className="usecases__tabs" role="tablist" aria-label="Сценарии команд">
+      <div
+        className="usecases__tabs"
+        role="tablist"
+        aria-label="Сценарии команд"
+      >
         {Object.entries(useCases).map(([key, value]) => (
           <button
             className={
@@ -57,7 +36,8 @@ export function Usecases() {
                 : "usecases__tab"
             }
             key={key}
-            onClick={() => setActiveCase(key as keyof typeof useCases)}
+            data-case={key}
+            onClick={handleCaseClick}
             role="tab"
             aria-selected={activeCase === key}
           >

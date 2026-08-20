@@ -1,41 +1,18 @@
-import { type FormEvent, useState } from "react";
 import "./contactform.css";
-
-type FormData = {
-  name: string;
-  email: string;
-  company: string;
-  message: string;
-};
-
-const initialForm: FormData = {
-  name: "",
-  email: "",
-  company: "",
-  message: "",
-};
+import { useContactForm } from "./hooks";
 
 export function Contactform() {
-  const [form, setForm] = useState<FormData>(initialForm);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (!form.name.trim() || !form.email.trim() || !form.company.trim()) {
-      setError("Заполните имя, рабочий email и название компании.");
-      return;
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      setError("Укажите корректный email.");
-      return;
-    }
-
-    setError("");
-    setSubmitted(true);
-  };
+  const {
+    form,
+    submitted,
+    error,
+    handleSubmit,
+    handleNameChange,
+    handleEmailChange,
+    handleCompanyChange,
+    handleMessageChange,
+    handleNewRequest,
+  } = useContactForm();
 
   return (
     <section className="contactform section-shell" id="contactform">
@@ -57,7 +34,7 @@ export function Contactform() {
             <span>✓</span>
             <h3>Заявка отправлена</h3>
             <p>Спасибо! Мы свяжемся с вами по указанному email.</p>
-            <button type="button" onClick={() => setSubmitted(false)}>
+            <button type="button" onClick={handleNewRequest}>
               Отправить ещё одну заявку
             </button>
           </div>
@@ -67,9 +44,7 @@ export function Contactform() {
               Имя
               <input
                 value={form.name}
-                onChange={(event) =>
-                  setForm({ ...form, name: event.target.value })
-                }
+                onChange={handleNameChange}
                 placeholder="Как к вам обращаться?"
                 autoComplete="name"
               />
@@ -78,9 +53,7 @@ export function Contactform() {
               Рабочий email
               <input
                 value={form.email}
-                onChange={(event) =>
-                  setForm({ ...form, email: event.target.value })
-                }
+                onChange={handleEmailChange}
                 placeholder="name@company.ru"
                 autoComplete="email"
                 inputMode="email"
@@ -90,9 +63,7 @@ export function Contactform() {
               Компания
               <input
                 value={form.company}
-                onChange={(event) =>
-                  setForm({ ...form, company: event.target.value })
-                }
+                onChange={handleCompanyChange}
                 placeholder="Название компании"
                 autoComplete="organization"
               />
@@ -101,9 +72,7 @@ export function Contactform() {
               Что хотите создавать?
               <textarea
                 value={form.message}
-                onChange={(event) =>
-                  setForm({ ...form, message: event.target.value })
-                }
+                onChange={handleMessageChange}
                 placeholder="Например: сайты и баннеры для продуктовых запусков"
                 rows={3}
               />

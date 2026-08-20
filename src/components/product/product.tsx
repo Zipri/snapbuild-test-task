@@ -1,47 +1,19 @@
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 import productImages from "../../assets/images/product-images.webp";
 import "./product.css";
-
-const productTabs = ["Сайты", "Изображения", "Видео", "Баннеры", "Презентации"];
-
-const productContent = {
-  Сайты: [
-    "Результат за один запрос",
-    "Страница за минуту",
-    "AI или визуальный редактор",
-    "Адаптация под ЦА за один клик",
-  ],
-  Изображения: [
-    "В стиле и цвете бренда",
-    "Попадание с первой генерации",
-    "Редактирование объектов",
-    "Любой стиль и формат",
-  ],
-  Видео: [
-    "Изображения как ключевые кадры",
-    "Контроль качества и формата",
-    "Сохранение стиля и композиции",
-    "Один сценарий — десятки адаптаций",
-  ],
-  Баннеры: [
-    "Креативы из одной идеи",
-    "Все размеры автоматически",
-    "Текст и графика под контролем",
-    "Экспорт под площадку",
-  ],
-  Презентации: [
-    "Презентация из запроса",
-    "В вашей дизайн-системе",
-    "Редактирование через AI",
-    "Экспорт в нужном формате",
-  ],
-};
+import { productContent, productTabs } from "./constants";
 
 export function Product() {
-  const [activeTab, setActiveTab] = useState<keyof typeof productContent>(
-    "Изображения",
-  );
+  const [activeTab, setActiveTab] =
+    useState<keyof typeof productContent>("Изображения");
   const activeFeatures = productContent[activeTab];
+
+  const handleTabClick = (event: MouseEvent<HTMLButtonElement>) => {
+    const nextTab = event.currentTarget.dataset
+      .tab as keyof typeof productContent;
+
+    setActiveTab(nextTab);
+  };
 
   return (
     <section className="section section-shell product" id="product">
@@ -55,7 +27,8 @@ export function Product() {
                 : "tabs__button"
             }
             key={tab}
-            onClick={() => setActiveTab(tab as keyof typeof productContent)}
+            data-tab={tab}
+            onClick={handleTabClick}
             role="tab"
             aria-selected={activeTab === tab}
           >
@@ -84,10 +57,7 @@ export function Product() {
           ))}
         </div>
         <div className="product-visual">
-          <img
-            src={productImages}
-            alt={`Режим «${activeTab}» в Снэпбилде`}
-          />
+          <img src={productImages} alt={`Режим «${activeTab}» в Снэпбилде`} />
           <div className="prompt-panel">
             <span>Опишите, что вы хотите сгенерировать...</span>
             <div>
